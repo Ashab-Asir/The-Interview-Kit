@@ -8,7 +8,6 @@ import Question from "./Question";
 import NextButton from "./NextButton";
 import Progress from "./Progress";
 import FinishScreen from "./FinishScreen";
-import { status } from "./../../node_modules/@tinyhttp/send/dist/status";
 const initialState = {
   questions: [],
   status: "loading",
@@ -36,7 +35,7 @@ function reducer(state, action) {
       return {
         ...state,
         answer: action.payload,
-        point:
+        points:
           action.payload === question.correctOption
             ? state.points + question.points
             : state.points,
@@ -51,6 +50,12 @@ function reducer(state, action) {
       return {
         ...state,
         status: "finished",
+      };
+    case "restart":
+      return {
+        ...initialState,
+        questions: state.questions,
+        status: "ready",
       };
     default:
       throw new Error("Action unkonw");
@@ -105,7 +110,11 @@ export default function App() {
           </>
         )}
         {status === "finished" && (
-          <FinishScreen points={points} maxPoint={maxPoint}></FinishScreen>
+          <FinishScreen
+            points={points}
+            maxPoint={maxPoint}
+            dispatch={dispatch}
+          ></FinishScreen>
         )}
       </Main>
     </div>
