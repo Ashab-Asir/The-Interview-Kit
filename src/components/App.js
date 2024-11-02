@@ -1,13 +1,14 @@
 import React, { useEffect, useReducer } from "react";
 import Header from "./Header";
 import Main from "./Main";
-import { status } from "./../node_modules/@tinyhttp/send/dist/status";
 import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
+import Question from "./Question";
 const initialState = {
   questions: [],
   status: "loading",
+  index: 0,
 };
 function reducer(state, action) {
   switch (action.type) {
@@ -22,12 +23,17 @@ function reducer(state, action) {
         ...state,
         status: "error",
       };
+    case "start":
+      return { ...state, status: "active" };
     default:
       throw new Error("Action unkonw");
   }
 }
 export default function App() {
-  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, index }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   const numQuestions = questions.length;
   useEffect(function () {
     fetch("http://localhost:8000/questions")
@@ -42,7 +48,13 @@ export default function App() {
         {status === "loading" && <Loader></Loader>}
         {status === "error" && <Error></Error>}
         {status === "ready" && (
-          <StartScreen numQuestions={numQuestions}></StartScreen>
+          <StartScreen
+            numQuestions={numQuestions}
+            dispatch={dispatch}
+          ></StartScreen>
+        )}
+        {status === "active" && (
+          <Question question={questions[index]}></Question>
         )}
       </Main>
     </div>
