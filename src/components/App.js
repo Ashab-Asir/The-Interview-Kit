@@ -10,7 +10,6 @@ import Progress from "./Progress";
 import FinishScreen from "./FinishScreen";
 import Footer from "./Footer";
 import Timer from "./Timer";
-import QuestionSelectionScreen from "./QuestionSelectionScreen ";
 import QuestionSelector from "./QuestionSelector";
 const data = [
   {
@@ -165,7 +164,7 @@ const initialState = {
   answer: null,
   points: 0,
   timeRemaining: null,
-  selectedNumQuestions: null, // New state property
+  selectedNumQuestions: null,
 };
 
 function reducer(state, action) {
@@ -230,15 +229,7 @@ function reducer(state, action) {
 
 export default function App() {
   const [
-    {
-      questions,
-      status,
-      index,
-      answer,
-      points,
-      timeRemaining,
-      selectedNumQuestions,
-    },
+    { questions, status, index, answer, points, timeRemaining },
     dispatch,
   ] = useReducer(reducer, initialState);
 

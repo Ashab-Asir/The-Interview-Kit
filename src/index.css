@@ -1,11 +1,10 @@
 :root {
-  --color-darkest: #343a40;
-  --color-dark: #495057;
-  --color-medium: #ced4da;
-  --color-light: #f1f3f5;
-
-  --color-theme: #1098ad;
-  --color-accent: #ffa94d;
+  --color-darkest: #000000;
+  --color-dark: #333333; 
+  --color-medium: #cccccc; 
+  --color-light: #ffffff; 
+  --color-theme: #49f2a9; 
+  --color-accent: #cccccc; 
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
@@ -37,11 +36,12 @@ body {
 }
 
 .main {
-  width: 50rem;
+  width: 60rem;
+  max-width: 100%; 
 }
-
 .app-header {
-  width: 66rem;
+  width: 100%;
+  max-width: 66rem; 
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@ body {
   font-size: 1.6rem;
   font-weight: 500;
   padding: 2rem;
-  background-color: #495057;
+  background-color: var(--color-dark);
   border-radius: 100px;
 }
 
@@ -63,7 +63,7 @@ img {
 
 h1 {
   font-family: "Codystar";
-  font-size: 5.6rem;
+  font-size: 5rem;
 }
 
 h2 {
@@ -110,6 +110,7 @@ progress {
   background-color: var(--color-medium);
   border-radius: 100px;
 }
+
 ::-webkit-progress-value {
   background-color: var(--color-theme);
   border-radius: 100px;
@@ -159,8 +160,9 @@ progress {
 .btn-option.correct {
   background-color: var(--color-theme);
   border: 2px solid var(--color-theme);
-  color: var(--color-light);
+  color: var(--color-darkest);
 }
+
 .btn-option.wrong {
   background-color: var(--color-accent);
   border: 2px solid var(--color-accent);
@@ -173,7 +175,7 @@ progress {
 
 .result {
   background-color: var(--color-theme);
-  color: var(--color-light);
+  color: var(--color-darkest);
   border-radius: 100px;
   text-align: center;
   padding: 2rem 0;
@@ -213,7 +215,6 @@ progress {
   border-radius: 100px;
 }
 
-/* CREDIT: https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
 .loader {
   width: 50px;
   height: 24px;
@@ -256,4 +257,56 @@ progress {
 .counter * {
   font-size: inherit;
   padding: 0.8rem;
+}
+.question-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  margin: 2rem 0; /* Spacing around the component */
+}
+
+.options {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  gap: 1rem; /* Space between buttons */
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main {
+    width: 90%; /* Full width on smaller screens */
+    text-align: center;
+  }
+ img{
+  width: 10rem;
+ }
+  h1 {
+    font-size: 2rem; 
+  }
+
+  h2 {
+    font-size: 2.8rem; 
+  }
+
+  h3 {
+    font-size: 2rem; 
+  }
+
+  .btn {
+    font-size: 1.8rem; 
+    padding: 1rem 2rem;
+  }
+
+  .error, .result {
+    font-size: 1.4rem; 
+  }
+
+  .progress {
+    font-size: 1.6rem; 
+  }
+
+  .loader {
+    width: 40px; 
+    height: 20px; 
+  }
 }
