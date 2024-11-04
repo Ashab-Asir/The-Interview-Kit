@@ -10,167 +10,179 @@ import Progress from "./Progress";
 import FinishScreen from "./FinishScreen";
 import Footer from "./Footer";
 import Timer from "./Timer";
+import QuestionSelectionScreen from "./QuestionSelectionScreen ";
+import QuestionSelector from "./QuestionSelector";
 const data = [
   {
-    question: "Which is the most popular JavaScript framework?",
-    options: ["Angular", "React", "Svelte", "Vue"],
-    correctOption: 1,
-    points: 10,
-  },
-  {
-    question: "Which company invented React?",
-    options: ["Google", "Apple", "Netflix", "Facebook"],
-    correctOption: 3,
-    points: 10,
-  },
-  {
-    question: "What's the fundamental building block of React apps?",
-    options: ["Components", "Blocks", "Elements", "Effects"],
+    question:
+      "What is the primary purpose of version control systems like Git?",
+    options: [
+      "To track changes and collaborate on code",
+      "To write code faster",
+      "To optimize code performance",
+      "To deploy code to production",
+    ],
     correctOption: 0,
     points: 10,
   },
   {
     question:
-      "What's the name of the syntax we use to describe the UI in React components?",
-    options: ["FBJ", "Babel", "JSX", "ES2015"],
+      "Which data structure uses a LIFO (Last In, First Out) principle?",
+    options: ["Queue", "Array", "Stack", "Linked List"],
     correctOption: 2,
     points: 10,
   },
   {
-    question: "How does data flow naturally in React apps?",
+    question: "What does 'DRY' stand for in programming?",
     options: [
-      "From parents to children",
-      "From children to parents",
-      "Both ways",
-      "The developers decides",
+      "Don't Repeat Yourself",
+      "Do Repeat Yourself",
+      "Documentation Requirements Yearly",
+      "Don't Require Yourself",
     ],
     correctOption: 0,
     points: 10,
   },
   {
-    question: "How to pass data into a child component?",
-    options: ["State", "Props", "PropTypes", "Parameters"],
+    question: "Which of the following is NOT a primary programming paradigm?",
+    options: ["Object-oriented", "Functional", "Procedural", "Network-based"],
+    correctOption: 3,
+    points: 10,
+  },
+  {
+    question: "What is the purpose of a function or method in programming?",
+    options: [
+      "To execute code conditionally",
+      "To structure code in reusable units",
+      "To compile the code",
+      "To manage memory usage",
+    ],
     correctOption: 1,
     points: 10,
   },
   {
-    question: "When to use derived state?",
+    question: "What is 'Big O' notation used for?",
     options: [
-      "Whenever the state should not trigger a re-render",
-      "Whenever the state can be synchronized with an effect",
-      "Whenever the state should be accessible to all components",
-      "Whenever the state can be computed from another state variable",
+      "To describe the speed of the internet connection",
+      "To measure the runtime or space efficiency of an algorithm",
+      "To indicate the version of a software",
+      "To compile code faster",
     ],
-    correctOption: 3,
-    points: 30,
+    correctOption: 1,
+    points: 20,
   },
   {
-    question: "What triggers a UI re-render in React?",
+    question: "Which HTTP method is used to request data from a server?",
+    options: ["POST", "GET", "PUT", "DELETE"],
+    correctOption: 1,
+    points: 10,
+  },
+  {
+    question: "What is the primary difference between SQL and NoSQL databases?",
     options: [
-      "Running an effect",
-      "Passing props",
-      "Updating state",
-      "Adding event listeners to DOM elements",
+      "SQL is open-source; NoSQL is not",
+      "SQL is used for web apps, NoSQL for mobile apps",
+      "SQL databases are relational; NoSQL databases are non-relational",
+      "SQL is faster than NoSQL",
     ],
     correctOption: 2,
     points: 20,
   },
   {
-    question: 'When do we directly "touch" the DOM in React?',
+    question: "What does the acronym 'API' stand for?",
     options: [
-      "When we need to listen to an event",
-      "When we need to change the UI",
-      "When we need to add styles",
-      "Almost never",
-    ],
-    correctOption: 3,
-    points: 20,
-  },
-  {
-    question: "In what situation do we use a callback to update state?",
-    options: [
-      "When updating the state will be slow",
-      "When the updated state is very data-intensive",
-      "When the state update should happen faster",
-      "When the new state depends on the previous state",
-    ],
-    correctOption: 3,
-    points: 30,
-  },
-  {
-    question:
-      "If we pass a function to useState, when will that function be called?",
-    options: [
-      "On each re-render",
-      "Each time we update the state",
-      "Only on the initial render",
-      "The first time we update the state",
-    ],
-    correctOption: 2,
-    points: 30,
-  },
-  {
-    question:
-      "Which hook to use for an API request on the component's initial render?",
-    options: ["useState", "useEffect", "useRef", "useReducer"],
-    correctOption: 1,
-    points: 10,
-  },
-  {
-    question: "Which variables should go into the useEffect dependency array?",
-    options: [
-      "Usually none",
-      "All our state variables",
-      "All state and props referenced in the effect",
-      "All variables needed for clean up",
-    ],
-    correctOption: 2,
-    points: 30,
-  },
-  {
-    question: "An effect will always run on the initial render.",
-    options: [
-      "True",
-      "It depends on the dependency array",
-      "False",
-      "In depends on the code in the effect",
+      "Application Programming Interface",
+      "Automatic Program Installation",
+      "Application Process Initialization",
+      "Algorithm Protocol Interface",
     ],
     correctOption: 0,
+    points: 10,
+  },
+  {
+    question:
+      "Which sorting algorithm has the best average-case time complexity?",
+    options: ["Bubble Sort", "Selection Sort", "Merge Sort", "Quick Sort"],
+    correctOption: 2,
     points: 30,
   },
   {
-    question: "When will an effect run if it doesn't have a dependency array?",
+    question:
+      "Which programming language is primarily used for web development?",
+    options: ["Python", "Java", "JavaScript", "C++"],
+    correctOption: 2,
+    points: 10,
+  },
+  {
+    question: "What does a '404 Not Found' error indicate?",
     options: [
-      "Only when the component mounts",
-      "Only when the component unmounts",
-      "The first time the component re-renders",
-      "Each time the component is re-rendered",
+      "The server is down",
+      "The client made a syntax error in the request",
+      "The requested resource could not be found",
+      "The server is overloaded",
     ],
-    correctOption: 3,
+    correctOption: 2,
+    points: 10,
+  },
+  {
+    question: "What does the 'this' keyword refer to in JavaScript?",
+    options: [
+      "The window object",
+      "The function's global context",
+      "The current object in which the function is being called",
+      "The document object",
+    ],
+    correctOption: 2,
     points: 20,
+  },
+  {
+    question:
+      "Which type of testing ensures each unit of code performs as expected?",
+    options: [
+      "Integration testing",
+      "End-to-end testing",
+      "Unit testing",
+      "System testing",
+    ],
+    correctOption: 2,
+    points: 20,
+  },
+  {
+    question:
+      "Which of the following is an example of a framework for frontend development?",
+    options: ["Django", "Flask", "Spring", "React"],
+    correctOption: 3,
+    points: 10,
   },
 ];
+
 const SECS_PER_QUESTION = 30;
+
 const initialState = {
   questions: [],
-  status: "loading",
+  status: "selecting",
   index: 0,
   answer: null,
   points: 0,
   timeRemaining: null,
+  selectedNumQuestions: null, // New state property
 };
+
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
       return {
         ...state,
         questions: action.payload,
-        status: "ready",
+        status: "selecting",
       };
-    case "dataFailed":
+    case "setNumQuestions":
+      const selectedQuestions = state.questions.slice(0, action.payload);
       return {
         ...state,
-        status: "error",
+        questions: selectedQuestions,
+        selectedNumQuestions: action.payload,
+        status: "ready",
       };
     case "start":
       return {
@@ -208,72 +220,74 @@ function reducer(state, action) {
     case "restart":
       return {
         ...initialState,
-        questions: state.questions,
-        status: "ready",
+        questions: data,
+        status: "selecting",
       };
     default:
-      throw new Error("Action unkonw");
+      throw new Error("Action unknown");
   }
 }
+
 export default function App() {
   const [
-    { questions, status, index, answer, points, timeRemaining },
+    {
+      questions,
+      status,
+      index,
+      answer,
+      points,
+      timeRemaining,
+      selectedNumQuestions,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
-  const numQuestions = questions.length;
-  const maxPoint = questions.reduce((prev, curr) => prev + curr.points, 0);
-  // useEffect(function () {
-  //   fetch("http://localhost:8000/questions")
-  //     .then((res) => res.json())
-  //     .then((data) => dispatch({ type: "dataReceived", payload: data }))
-  //     .catch((err) => dispatch({ type: "dataFailed" }));
-  // }, []);
-  useEffect(function () {
+
+  useEffect(() => {
+    // Load data on mount
     dispatch({ type: "dataReceived", payload: data });
   }, []);
+
   return (
     <div className="app">
-      <Header></Header>
+      <Header />
       <Main>
-        {status === "loading" && <Loader></Loader>}
-        {status === "error" && <Error></Error>}
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
+        {status === "selecting" && <QuestionSelector dispatch={dispatch} />}
         {status === "ready" && (
-          <StartScreen
-            numQuestions={numQuestions}
-            dispatch={dispatch}
-          ></StartScreen>
+          <StartScreen numQuestions={questions.length} dispatch={dispatch} />
         )}
         {status === "active" && (
           <>
             <Progress
               index={index}
-              numQuestion={numQuestions}
+              numQuestion={questions.length}
               points={points}
-              maxPoint={maxPoint}
+              maxPoint={questions.reduce((p, q) => p + q.points, 0)}
               answer={answer}
-            ></Progress>
+            />
             <Question
               question={questions[index]}
               dispatch={dispatch}
               answer={answer}
-            ></Question>
+            />
             <Footer>
-              <Timer timeRemaining={timeRemaining} dispatch={dispatch}></Timer>
+              <Timer timeRemaining={timeRemaining} dispatch={dispatch} />
               <NextButton
                 answer={answer}
-                numQuestions={numQuestions}
+                numQuestions={questions.length}
                 index={index}
                 dispatch={dispatch}
-              ></NextButton>
+              />
             </Footer>
           </>
         )}
         {status === "finished" && (
           <FinishScreen
             points={points}
-            maxPoint={maxPoint}
+            maxPoint={questions.reduce((p, q) => p + q.points, 0)}
             dispatch={dispatch}
-          ></FinishScreen>
+          />
         )}
       </Main>
     </div>
