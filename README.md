@@ -26,9 +26,9 @@
 
 ## 4. Image Preview of the Website  
 
-![The Interview Kit Preview](./path-to-your-image.png)  
-
-> *(Replace `./path-to-your-image.png` with the actual path to your image in the repository)*  
+![The Interview Kit Preview](https://github.com/Ashab-Asir/The-Interview-Kit/blob/b6aecd8f49616cbe5da6d384cd87413c4ac0341d/01.png)  
+![The Interview Kit Preview](https://github.com/Ashab-Asir/The-Interview-Kit/blob/b6aecd8f49616cbe5da6d384cd87413c4ac0341d/02.png) 
+![The Interview Kit Preview](https://github.com/Ashab-Asir/The-Interview-Kit/blob/b6aecd8f49616cbe5da6d384cd87413c4ac0341d/03.png) 
 
 ---
 
